@@ -4,29 +4,31 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int *b = new int[NELEMENTS]; //Név hiba: N_ELEMENTS helyett NELEMENTS
-    std::cout << '1-100 ertekek duplazasa' // Syntaxis hiba: " " helyett ' '
-    
-    for (int i = 0;) // Hibás for-ciklus: ciklusmag rossz.
+    int *b = new int[N_ELEMENTS];
+    std::cout << "1-100 ertekek duplazasa" << std::endl;
+
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
         b[i] = i * 2;
     }
 
-    for (int i = 0; i; i++) // Hibás feltétel: "i;" mindig false lesz, így a ciklus soha nem fut le. Helyette "i < N_ELEMENTS;" kellene.
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-        std::cout << "Ertek:" // Syntaxis hiba: Hiányzó pontosvessző. 
+        std::cout << "Ertek: " << b[i] << std::endl;
     }    
     
     std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag = 0; // Hibás inicializáció: "atlag" változót ha != 0, akkor memóriaszemetet kaphat, és azzal az értékkel dolgozhat.
+    int atlag = 0;
 
-    for (int i = 0; i < N_ELEMENTS, i++) // Hibás elválasztójel: a vessző helyett pontosvesszőt kell használni.
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-        atlag += b[i] //Syntaxis hiba: Hiányzó pontosvessző. 
+        atlag += b[i];
     }
     
-    atlag /= N_ELEMENTS; // mivel "atlag" egész (int) ezért nem lesz pontos az átlagunk.
+    atlag /= N_ELEMENTS;
 
     std::cout << "Atlag: " << atlag << std::endl;
+    
+    delete[] b; 
     return 0;
 }
