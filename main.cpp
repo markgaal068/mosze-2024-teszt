@@ -29,6 +29,7 @@ int main()
 
     std::cout << "Atlag: " << atlag << std::endl;
     
+    std::cout << "Valamit beírtam ide." << std::endl;
     delete[] b; 
     return 0;
 }
